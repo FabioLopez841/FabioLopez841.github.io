@@ -1,231 +1,436 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Fabio Lopez — Data Analytics Portfolio</title>
-  <meta name="description" content="Portafolio profesional de Fabio Lopez — Data Analytics, Dashboards, Machine Learning.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Fabio López | Desarrollo Full Stack & Agentes de IA</title>
 
-  <style>
-    :root{
-      --bg: #0f1724; /* deep navy */
-      --card: #0b1220;
-      --muted: #9aa4b2;
-      --accent: #6ee7b7; /* soft mint */
-      --accent-2: #7dd3fc; /* sky */
-      --glass: rgba(255,255,255,0.04);
-      --radius: 14px;
-      --max-width: 1100px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg, #071024 0%, #061525 50%);
-      color:#e6eef6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    .container{max-width:var(--max-width);margin:36px auto;padding:32px}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    /* NAV */
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{width:52px;height:52px;border-radius:10px;object-fit:cover;box-shadow:0 6px 20px rgba(0,0,0,0.6)}
-    .brand h1{font-size:18px;margin:0;font-weight:700}
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
-    nav a:hover{color:var(--accent-2)}
+<style>
 
-    /* HERO */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
-    .hero .intro{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:var(--radius);backdrop-filter:blur(6px);box-shadow:0 6px 24px rgba(2,6,23,0.6)}
-    .intro h2{margin:0 0 12px;font-size:26px}
-    .intro p{color:var(--muted);margin:0 0 18px}
-    .badges{display:flex;gap:10px;flex-wrap:wrap}
-    .badge{background:var(--glass);padding:10px 12px;border-radius:12px;color:var(--muted);font-weight:600;font-size:13px}
-    .cta{margin-top:18px;display:flex;gap:12px}
-    .btn{padding:10px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#022; font-weight:700;text-decoration:none}
-    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent-2)}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    .hero img{width:100%;border-radius:12px;box-shadow:0 12px 40px rgba(2,6,23,0.6)}
+html{
+scroll-behavior:smooth;
+}
 
-    /* PROJECTS */
-    section.projects{margin-top:36px}
-    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .25s ease, box-shadow .25s ease}
-    .card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(2,6,23,0.6)}
-    .card h3{margin:0 0 8px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-    .tag{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px;color:var(--muted)}
+body{
+font-family:'Inter',sans-serif;
+background:#09090B;
+color:#F8FAFC;
+overflow-x:hidden;
+}
 
-    /* CONTACT */
-    .contact{display:flex;gap:20px;align-items:center;margin-top:36px;padding:20px;border-radius:12px;background:linear-gradient(90deg, rgba(125,211,252,0.03), rgba(110,231,183,0.03));border:1px solid rgba(255,255,255,0.02)}
-    .contact .left{flex:1}
-    .contact .right{display:flex;gap:12px}
-    .social{display:flex;gap:12px}
-    .social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.02);text-decoration:none;color:var(--muted)}
+/* Fondo */
 
-    /* FOOTER */
-    footer{text-align:center;color:var(--muted);margin:48px 0 18px}
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top left,#2563eb25,transparent 35%),
+radial-gradient(circle at bottom right,#06b6d425,transparent 35%);
+z-index:-1;
+}
 
-    /* RESPONSIVE */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;}
-      .projects-grid{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:640px){
-      .container{padding:18px}
-      nav a{margin-left:10px;font-size:14px}
-      .projects-grid{grid-template-columns:1fr}
-    }
-  </style>
+/* Layout */
+
+.container{
+width:min(1100px,90%);
+margin:auto;
+}
+
+/* Header */
+
+header{
+padding:30px 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:1.4rem;
+font-weight:700;
+letter-spacing:.5px;
+}
+
+nav a{
+margin-left:30px;
+text-decoration:none;
+color:#cbd5e1;
+transition:.3s;
+}
+
+nav a:hover{
+color:white;
+}
+
+/* Hero */
+
+.hero{
+min-height:90vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:70px;
+}
+
+.hero h1{
+font-size:4rem;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.hero span{
+background:linear-gradient(90deg,#3b82f6,#06b6d4);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:1.1rem;
+color:#94a3b8;
+line-height:1.9;
+margin-bottom:35px;
+max-width:560px;
+}
+
+.buttons{
+display:flex;
+gap:20px;
+}
+
+.btn{
+padding:16px 32px;
+border-radius:14px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.primary{
+background:linear-gradient(135deg,#2563EB,#06B6D4);
+color:white;
+}
+
+.primary:hover{
+transform:translateY(-4px);
+box-shadow:0 20px 40px rgba(37,99,235,.35);
+}
+
+.secondary{
+border:1px solid rgba(255,255,255,.15);
+color:white;
+}
+
+.secondary:hover{
+background:rgba(255,255,255,.05);
+}
+
+/* Imagen */
+
+.hero img{
+width:100%;
+border-radius:24px;
+box-shadow:0 30px 60px rgba(0,0,0,.45);
+}
+
+/* Cards */
+
+section{
+padding:100px 0;
+}
+
+.title{
+font-size:2.3rem;
+margin-bottom:20px;
+text-align:center;
+}
+
+.subtitle{
+color:#94a3b8;
+max-width:760px;
+margin:auto;
+text-align:center;
+line-height:1.8;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.card{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+padding:35px;
+border-radius:24px;
+backdrop-filter:blur(12px);
+transition:.35s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#3b82f6;
+}
+
+.card h3{
+margin-bottom:15px;
+font-size:1.2rem;
+}
+
+.card p{
+color:#94a3b8;
+line-height:1.7;
+}
+
+/* Contacto */
+
+.contact{
+text-align:center;
+background:rgba(255,255,255,.04);
+padding:70px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.contact h2{
+font-size:2.3rem;
+margin-bottom:15px;
+}
+
+.contact p{
+color:#94a3b8;
+margin-bottom:30px;
+}
+
+.contact a{
+display:inline-block;
+margin:10px;
+color:#38bdf8;
+text-decoration:none;
+font-size:1.05rem;
+}
+
+footer{
+padding:40px 0;
+text-align:center;
+color:#64748b;
+font-size:.9rem;
+}
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+padding-top:40px;
+}
+
+.hero h1{
+font-size:2.8rem;
+}
+
+.hero p{
+margin:auto auto 35px;
+}
+
+.buttons{
+justify-content:center;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <img src="https://imgur.com/PnSHLRK.png" alt="avatar">
-        <div>
-          <h1>Fabio Lopez Tenorio</h1>
-          <div style="color:var(--muted);font-size:13px">Data Analytics | Python | SQL | Tableau</div>
-        </div>
-      </div>
 
-      <nav>
-        <a href="#projects">Proyectos</a>
-        <a href="#about">Sobre mí</a>
-        <a href="#contact">Contacto</a>
-      </nav>
-    </header>
+<div class="container">
 
-    <main>
-      <section class="hero">
-        <div class="intro">
-          <h2>Me gusta aprender y los datos son mi forma de entender cómo funciona el mundo.</h2>
-          <p>Diseño dashboards y pipelines que conectan áreas y aceleran la toma de decisiones. 
-            Me enfoco en resultados medibles y en entregar soluciones que la gente pueda entender y usar.</p>
+<header>
 
-          <div class="badges" style="margin-top:16px">
-            <span class="badge">Remote Worker</span>
-            <span class="badge">Tableau</span>
-            <span class="badge">Power BI</span>
-            <span class="badge">Python</span>
-            <span class="badge">SQL</span>
-            <span class="badge">Storytelling</span>
-          </div>
+<div class="logo">
+Fabio López
+</div>
 
-          <div class="cta">
-            <a class="btn" href="#projects">Ver proyectos</a>
-            <a class="btn-outline" href="#contact">Contactar</a>
-          </div>
-        </div>
+<nav>
 
-        <div>
-          <!-- Use GIF or preview image here -->
-          <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGowZG9hbjRlZWlnZnVqZTducmxmdHExa2p3cnBvODVsbTJrMXF4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U4FkC2VqpeNRHjTDQ5/giphy.gif" alt="preview gif">
-        </div>
-      </section>
+<a href="#ia">Agentes IA</a>
 
-      <section id="projects" class="projects">
-        <h2 style="margin-bottom:12px">Proyectos destacados</h2>
-        <div class="projects-grid">
+<a href="#contacto">Contacto</a>
 
-          <article class="card">
-            <h3>Global EV Charging Stations</h3>
-            <p>Análisis geoespacial de estaciones de carga: limpieza, EDA y mapas interactivos.</p>
-            <div class="meta">
-              <span class="tag">Python · Geo</span>
-              <a href="https://github.com/FabioLopez841/global_ev_charging_stations" style="color:var(--accent-2);text-decoration:none;font-weight:700">Ver repo →</a>
-            </div>
-          </article>
+</nav>
 
-          <article class="card">
-            <h3>Hotel Booking Analysis</h3>
-            <p>Patrones de cancelación y demanda. Visualizaciones y recomendaciones accionables.</p>
-            <div class="meta">
-              <span class="tag">Tableau · SQL</span>
-              <a href="https://github.com/FabioLopez841/hotel_booking" style="color:var(--accent-2);text-decoration:none;font-weight:700">Ver repo →</a>
-            </div>
-          </article>
+</header>
 
-          <article class="card">
-            <h3>Optimizing Iron Concentrate Yield</h3>
-            <p>Modelo predictivo para mejorar rendimiento mediante features geológicas y ML.</p>
-            <div class="meta">
-              <span class="tag">ML · Scikit-learn</span>
-              <a href="https://github.com/FabioLopez841/Optimizing-Iron-Concentrate-Yield-with-Machine-Learning" style="color:var(--accent-2);text-decoration:none;font-weight:700">Ver repo →</a>
-            </div>
-          </article>
+<section class="hero">
 
-          <!-- Add more project cards as desired -->
-        </div>
-      </section>
+<div>
 
-      <section id="about" style="margin-top:36px">
-        <h2>Sobre mí</h2>
-        <p style="color:var(--muted);max-width:760px">Soy Fabio — me especializo en llevar datos desde la recolección hasta la decisión. He trabajado creando dashboards que sirven como fuentes de verdad operativas para equipos comerciales y de operaciones. Me interesa la intersección entre producto, negocio y datos: entender el contexto, diseñar preguntas correctas y entregar resultados útiles.</p>
-      </section>
+<h1>
 
-      <section id="contact" class="contact">
-        <div class="left">
-          <h3>¿Hablamos?</h3>
-          <p style="color:var(--muted);margin-top:6px">Si quieres ver una demo, colaborar o revisar un proyecto en detalle, escríbeme. Respondo rápido y con ejemplos concretos.</p>
-          <div style="margin-top:12px;color:var(--muted)">✉️ <strong>Email:</strong> <a href="mailto:fabiolopez.bluefish@gmail.com" style="color:var(--accent-2);text-decoration:none">fabiolopez.bluefish@gmail.com</a></div>
-          <div style="margin-top:6px;color:var(--muted)">🔗 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/fabiolopezt" style="color:var(--accent-2);text-decoration:none">linkedin.com/in/fabiolopezt</a></div>
-        </div>
-        <div class="right">
-          <div class="social">
-            <a href="https://github.com/tu_usuario" title="GitHub">GH</a>
-            <a href="https://linkedin.com/in/fabiolopezt" title="LinkedIn">in</a>
-            <a href="#" title="Twitter">tw</a>
-          </div>
-        </div>
-      </section>
-      <!-- GIF SECTION -->
-      <section style="margin-top:46px; text-align:center;">
-        <div style="
-          margin:auto;
-          max-width:420px;
-          background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-          padding:22px;
-          border-radius:14px;
-          backdrop-filter:blur(6px);
-          border:1px solid rgba(255,255,255,0.04);
-          box-shadow:0 12px 32px rgba(2,6,23,0.5);
-        ">
-          <img 
-            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTVlcmU1a2ptbXY4MjB3MmljczVvc3Rkb28yZG8yb2F6Znk0YnNqOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EENEi2BT86bBK/giphy.gif" 
-            alt="fun gif"
-            style="width:100%; border-radius:12px;"
-          >
-          <p style="color:var(--muted); font-size:14px; margin-top:12px;">
-            “Una decisión es tan buena como la calidad del dato que la respalda.” — Thomas Redman
-          </p>
-        </div>
-      </section>
+Desarrollo soluciones con
 
-    </main>
+<span>Inteligencia Artificial</span>
 
-    <footer>
-      <div style="opacity:0.8">© {new Date().getFullYear ? new Date().getFullYear() : '2025'} Fabio Lopez — Built with data & design</div>
-    </footer>
-  </div>
+</h1>
 
-  <script>
-    // Small script to replace the year placeholder for static HTML
-    (function(){
-      try{
-        var footer = document.querySelector('footer div');
-        if(footer) footer.textContent = '© ' + new Date().getFullYear() + ' Fabio Lopez — Built with data & design';
-      }catch(e){}
-    })();
-  </script>
+<p>
+
+Ayudo a empresas a automatizar procesos mediante aplicaciones web, chatbots inteligentes y agentes de IA capaces de atender clientes, optimizar operaciones y generar una mejor experiencia para usuarios y colaboradores.
+
+</p>
+
+<div class="buttons">
+
+<a href="#contacto" class="btn primary">
+
+Contactar
+
+</a>
+
+<a href="#ia" class="btn secondary">
+
+Saber más
+
+</a>
+
+</div>
+
+</div>
+
+<div>
+
+<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGowZG9hbjRlZWlnZnVqZTducmxmdHExa2p3cnBvODVsbTJrMXF4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U4FkC2VqpeNRHjTDQ5/giphy.gif">
+
+</div>
+
+</section>
+
+<section id="ia">
+
+<h2 class="title">
+
+¿Por qué los agentes de IA son importantes?
+
+</h2>
+
+<p class="subtitle">
+
+Las empresas ya no compiten únicamente por precio o calidad. Hoy la velocidad de respuesta, la disponibilidad y la experiencia del cliente son factores decisivos. Los agentes de Inteligencia Artificial permiten automatizar procesos, responder consultas en segundos y brindar atención personalizada las 24 horas del día. En los próximos años, integrar IA dejará de ser una ventaja competitiva para convertirse en un estándar en prácticamente todos los sectores.
+
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>
+
+🚀 Atención 24/7
+
+</h3>
+
+<p>
+
+Tus clientes reciben respuestas inmediatas incluso fuera del horario laboral.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+⚡ Automatización
+
+</h3>
+
+<p>
+
+Reduce tareas repetitivas y permite que tu equipo se concentre en actividades de mayor valor.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+📈 Escalabilidad
+
+</h3>
+
+<p>
+
+Un agente puede atender cientos de conversaciones al mismo tiempo sin perder calidad.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contacto">
+
+<div class="contact">
+
+<h2>
+
+Hablemos
+
+</h2>
+
+<p>
+
+Si estás buscando implementar agentes de IA, automatizar procesos o desarrollar una solución tecnológica para tu empresa, estaré encantado de ayudarte.
+
+</p>
+
+<a href="mailto:fabiolopez.bluefish@gmail.com">
+
+📧 fabiolopez.bluefish@gmail.com
+
+</a>
+
+<br>
+
+<a href="https://linkedin.com/in/fabiolopezt" target="_blank">
+
+💼 linkedin.com/in/fabiolopezt
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Fabio López · Desarrollo Full Stack · Automatización · Inteligencia Artificial
+
+</footer>
+
+</div>
+
 </body>
+
 </html>
